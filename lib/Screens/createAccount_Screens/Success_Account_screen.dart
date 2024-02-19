@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:jobsque/Screens/login_screens/login_screen.dart';
 
 class SuccessAccountScreen extends StatelessWidget {
   const SuccessAccountScreen({super.key});
@@ -49,12 +50,12 @@ class SuccessAccountScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 345),
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => SuccessAccountScreen(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(),
+                    ),
+                  );
                 },
                 child: const Text(
                   "Get Started",

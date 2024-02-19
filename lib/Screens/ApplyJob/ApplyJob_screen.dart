@@ -254,7 +254,7 @@ class _ApplyJopScreenState extends State<ApplyJopScreen> {
                 return CustomElvatedButton(
                   text: Text(
                     pageNumber < 2 ? "Next" : "Submit",
-                    style: const TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16, color: Colors.white),
                   ),
                   onpress: () async {
                     switch (pageNumber) {

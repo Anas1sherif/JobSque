@@ -183,39 +183,46 @@ class _ItemLoginState extends State<ItemLogin> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
-              Row(
-                children: [
-                  const Icon(
-                    Icons.check_box_outline_blank_outlined,
-                    size: 16,
-                  ),
-                  const SizedBox(
-                    width: 2,
-                  ),
-                  const Text(
-                    "Remember me",
-                    style: TextStyle(
-                      color: Color.fromRGBO(31, 41, 55, 1),
+              const SizedBox(height: 10),
+              Visibility(
+                visible: true,
+                child: Row(
+                  children: [
+                    Checkbox(
+                      side: const BorderSide(
+                        color: Color(0xff9CA3AF),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      value: isRmember,
+                      onChanged: (value) {
+                        setState(
+                          () {
+                            isRmember = value!;
+                          },
+                        );
+                      },
                     ),
-                  ),
-                  const SizedBox(
-                    width: 141,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => RequestRestPassword(),
-                        ),
-                      );
-                    },
-                    child: const Text(
-                      "Forgot Password?",
-                      style: TextStyle(color: Color.fromRGBO(51, 102, 255, 1)),
+                    const Text("Remember me"),
+                    SizedBox(
+                      width: 110,
                     ),
-                  ),
-                ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => RequestRestPassword(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        "Forgot Password?",
+                        style: TextStyle(color: Color(0XFF3366FF)),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 200),
               Row(
@@ -232,9 +239,11 @@ class _ItemLoginState extends State<ItemLogin> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const CreateAccountScreen(),
-                      ));
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const CreateAccountScreen(),
+                        ),
+                      );
                     },
                     child: const Text(
                       "Register",

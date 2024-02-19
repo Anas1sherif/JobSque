@@ -115,11 +115,11 @@ class PortfolioScreen extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                Container(
+                SizedBox(
                   width: 100,
                   height: 200,
                   child: Column(
-                    children: ref.watch(jobsqueprov).portofelioList.toList(),
+                    children: ref.read(jobsqueprov).portofelioList.toList(),
                   ),
                 )
               ],
@@ -139,6 +139,7 @@ class PortfolioItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, _) {
+        final prov = ref.watch(jobsqueprov);
         return Column(
           children: [
             ListTile(
@@ -156,7 +157,7 @@ class PortfolioItem extends StatelessWidget {
                 style: const TextStyle(fontWeight: FontWeight.w500),
               ),
               subtitle: Text(dataOfPdf?.name != null
-                  ? "CV.pdf ${sizeOfTheFile(dataOfPdf!.size)} KB"
+                  ? "CV.pdf ${sizeFile(dataOfPdf!.size)} KB"
                   : "    "),
               trailing: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -171,13 +172,14 @@ class PortfolioItem extends StatelessWidget {
                     width: 10,
                   ),
                   GestureDetector(
-                      onTap: () {
-                        ref.read(jobsqueprov).removePortfolio(dataOfPdf!.name);
-                      },
-                      child: Icon(
-                        Iconsax.close_circle,
-                        color: Color.fromRGBO(255, 71, 43, 1),
-                      )),
+                    onTap: () {
+                      ref.read(jobsqueprov).removePortfolio(dataOfPdf!.name);
+                    },
+                    child: Icon(
+                      Iconsax.close_circle,
+                      color: Color.fromRGBO(255, 71, 43, 1),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -190,7 +192,7 @@ class PortfolioItem extends StatelessWidget {
     );
   }
 
-  sizeOfTheFile(int size) {
+  sizeFile(int size) {
     final kb = size / 1024;
     final mb = kb / 1024;
     return mb > 1 ? mb.toStringAsFixed(2) : kb.toStringAsFixed(2);

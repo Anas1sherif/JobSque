@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque/Screens/createAccount_Screens/Work_Interested_Screen.dart';
-import 'package:jobsque/Screens/createAccount_Screens/choosejob_screen.dart';
 import 'package:jobsque/Screens/login_screens/login_screen.dart';
 
 class CreateAccountScreen extends StatefulWidget {
@@ -177,15 +176,15 @@ class _ItemCreateAccountState extends State<ItemCreateAccount> {
                   },
                   keyboardType: TextInputType.number,
                   controller: _passwordcontroller,
-                  obscureText: true,
-                  obscuringCharacter: ".",
+                  obscureText: passtoggle,
+                  obscuringCharacter: "●",
                   decoration: InputDecoration(
                     filled: false,
                     prefixIcon: Icon(Iconsax.lock),
                     suffixIcon: InkWell(
                       onTap: () {
                         setState(() {
-                          passtoggle != passtoggle;
+                          passtoggle = !passtoggle;
                         });
                       },
                       child: Icon(
@@ -244,7 +243,7 @@ class _ItemCreateAccountState extends State<ItemCreateAccount> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ChooseJobScreen(),
+                        builder: (context) => WorkInterestedScreen(),
                       ));
                 },
                 child: const Text(

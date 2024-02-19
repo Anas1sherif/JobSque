@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:jobsque/Screens/createAccount_Screens/choosejob_screen.dart';
+import 'package:jobsque/Screens/createAccount_Screens/choose_location_job_screen.dart';
 import 'package:jobsque/Screens/createAccount_Screens/widget/item_intersted.dart';
 import 'package:jobsque/widget/CustomElvatued_Button.dart';
 
@@ -80,7 +80,7 @@ class WorkInterestedScreen extends StatelessWidget {
                 ),
                 onpress: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ChooseJobScreen(),
+                    builder: (context) => const ChooseLocationJob(),
                   ));
                 },
                 color: const Color(0xff3366FF),

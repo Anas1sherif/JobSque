@@ -135,9 +135,9 @@ class EditProfileScreen extends ConsumerWidget {
                   CustomElvatedButton(
                     text: const Text("Save",
                         style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        )),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white)),
                     onpress: () {
                       ref.read(jobsqueprov).user!.name = _nameController.text;
 
